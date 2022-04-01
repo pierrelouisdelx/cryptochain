@@ -14,10 +14,6 @@ class Blocks extends Component {
         this.fetchPaginatedBlocks(this.state.paginatedId)();
     }
 
-    componentDidCatch(error, errorInfo) {
-        console.log(error, errorInfo);
-      }
-
     fetchPaginatedBlocks = paginatedId => () => {
         fetch(`${document.location.origin}/api/blocks/${paginatedId}`)
             .then(response => response.json())
