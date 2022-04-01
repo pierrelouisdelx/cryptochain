@@ -21,8 +21,19 @@ const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'client/dist')));
 
-app.get('/api/blocks', (req, res) => {
-    res.json(blockchain.chain);
+app.get('/api/blocks/:id', (req, res) => {
+    const { id } = req.params;
+    const { length } = blockchain.chain;
+    
+    const blocksReversed = blockchain.chain.slice().reverse();
+    
+    let startIndex = (id - 1) * 5;
+    let endIndex = id * 5;
+    
+    startIndex = startIndex < length ? startIndex : length;
+    endIndex = endIndex < length ? endIndex : length;
+    
+    res.json(blocksReversed.slice(startIndex, endIndex));
 });
 
 app.post('/api/mine', (req, res) => {
@@ -75,6 +86,20 @@ app.get('/api/wallet-info', (req, res) => {
         address: wallet.publicKey,
         balance: Wallet.calculateBalance({ chain: blockchain.chain, address})
     });
+});
+
+app.get('/api/known-addresses', (req, res) => {
+    const addressMap = {};
+
+    for (let block of blockchain.chain) {
+        for (let transaction of block.data) {
+            const recipient = Object.keys(transaction.outputMap);
+
+            recipient.forEach(recipient => addressMap[recipient] = recipient )
+        }
+    }
+
+    res.json(Object.keys(addressMap));
 });
 
 app.get('*', (req, res) => {
