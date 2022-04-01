@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.jpg';
+import { Button } from 'react-bootstrap';
 
 class App extends Component {
-    state = { walletInfo: {} };
+    state = { walletInfo: {}, displayWallet: false};
 
     componentDidMount() {
         fetch(`${document.location.origin}/api/wallet-info`)
@@ -11,23 +12,33 @@ class App extends Component {
             .then(json => this.setState({ walletInfo: json }));
     }
 
-    render() {
-        const { address, balance } = this.state.walletInfo;
+    toggleWalletInfo = () => {
+        this.setState({ displayWallet: !this.state.displayWallet });
+    }
 
-        return (
-            <div className='App'>
-                <img className='logo' src={logo}></img>
-                <br/>
-                Welcome to the blockchain...
-                <br />  
-                <div><Link to='/blocks'>Blocks</Link></div>
-                <div><Link to='/send'>Send</Link></div>
-                <div><Link to='/pool'>Transaction Pool</Link></div>
-                <br/>
+    get displayWalletInfo() {
+        if (this.state.displayWallet) {
+            const { address, balance } = this.state.walletInfo;
+            return (
                 <div className='WalletInfo'>
                     <div>Address: {address}</div>
                     <div>Balance: {balance}</div>
+                    <Button onClick={this.toggleWalletInfo}>Hide</Button>
                 </div>
+            )
+        }
+        return (
+            <Button onClick={this.toggleWalletInfo}>My Wallet</Button>
+        );
+    }
+
+    render() {
+        return (
+            <div className='App'>
+                {this.displayWalletInfo}
+                <div><Link to='/blocks'>Blocks</Link></div>
+                <div><Link to='/send'>Send</Link></div>
+                <div><Link to='/pool'>Transaction Pool</Link></div>
             </div>
         );
     }

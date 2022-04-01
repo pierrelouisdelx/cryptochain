@@ -3,23 +3,21 @@ body {
     color: #fff;
     text-align: center;
     font-size: 20px;
-    padding-top: 5%;
     word-wrap: break-word;
-}
-
-.logo {
-    width: 250px;
-    height: 250px;
 }
 
 .App {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 .WalletInfo {
-    width: 500px;
+    border: 3px solid #0395de;
+    border-radius: 25px;
+    margin: 10px;
+    padding: 10px;
+    width: 50%;
 }
 
 .Blocks {
@@ -39,12 +37,7 @@ body {
     padding: 5%;
 }
 
-a, a:hover {
-    color: #e66;
-    text-decoration: underline;
-}
-
-button {
+button, a {
     background-color: #131a28;
     border: 1px solid #0395de;
     color: #fff;
