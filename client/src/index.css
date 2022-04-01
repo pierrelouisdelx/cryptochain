@@ -1,5 +1,5 @@
 body {
-    background-color: #444;
+    background-color: #131a28;
     color: #fff;
     text-align: center;
     font-size: 20px;
@@ -22,10 +22,17 @@ body {
     width: 500px;
 }
 
+.Blocks {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .Block {
-    border: 1px solid #fff;
-    padding: 5%;
-    margin: 2%;
+    border: 3px solid #0395de;
+    border-radius: 25px;
+    margin: 10px;
+    padding: 10px;
 }
 
 .Transaction {
@@ -35,4 +42,13 @@ body {
 a, a:hover {
     color: #e66;
     text-decoration: underline;
+}
+
+button {
+    background-color: #131a28;
+    border: 1px solid #0395de;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 25px;
+    cursor: pointer;
 }

@@ -21,6 +21,15 @@ const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'client/dist')));
 
+
+app.get('/api/blocks', (req, res) => {
+    res.json(blockchain.chain);
+});
+  
+app.get('/api/blocks/length', (req, res) => {
+    res.json(blockchain.chain.length);
+});
+
 app.get('/api/blocks/:id', (req, res) => {
     const { id } = req.params;
     const { length } = blockchain.chain;

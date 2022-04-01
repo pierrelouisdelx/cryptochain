@@ -30,22 +30,20 @@ class Block extends Component {
                         ))
                     }
                     <br/>
-                    <Button variant="danger" bsSize="small"
-                        onClick={this.toggleTransaction}>Show Less</Button>
+                    <Button onClick={this.toggleTransaction}>Show Less</Button>
                 </div>
             )
         }
-        
-        return(
+        return (
             <div>
                 Data: {dataDisplay}
-                <Button variant="danger" bsSize="small" onClick={this.toggleTransaction}>Show More</Button>
+                <br/>
+                <Button onClick={this.toggleTransaction}>Show More</Button>
             </div>
         );
     }
 
     render() {
-        console.log('this.displayTransaction', this.displayTransaction);
         const { timestamp, hash, data } = this.props.block;
 
         const hashDisplay = `${hash.substring(0, 15)}...`;

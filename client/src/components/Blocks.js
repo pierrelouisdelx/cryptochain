@@ -38,13 +38,15 @@ class Blocks extends Component {
                         })
                     }
                 </div>
-                {
-                    this.state.blocks.map(block => {
-                        return (
-                            <Block key={block.hash} block={block} />
-                        );
-                    })
-                }
+                <div className='Blocks'>
+                    {
+                        this.state.blocks.map(block => {
+                            return (
+                                <Block key={block.hash} block={block} />
+                            );
+                        })
+                    }
+                </div>
             </div>
         );
     }

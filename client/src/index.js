@@ -13,8 +13,8 @@ render(
         <Routes>
             <Route path='/' element={<App/>} />
             <Route path='/blocks' element={<Blocks/>} />    
-            <Route path='/conduct-transaction' element={<ConductTransaction/>} />    
-            <Route path='/transaction-pool' element={<TransactionPool/>} />    
+            <Route path='/send' element={<ConductTransaction/>} />    
+            <Route path='/pool' element={<TransactionPool/>} />    
         </Routes>
     </BrowserRouter>,  
     document.getElementById('root')
