@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import history from '../history';
 
 class ConductTransaction extends Component {
@@ -30,14 +29,13 @@ class ConductTransaction extends Component {
         }).then(response => response.json())
         .then(json => {
             alert(json.message || json.type);
-            history.push('/transaction-pool');
+            //history.push('/transaction-pool');
         });
     }
 
     render() {
         return (
             <div className='conductTransaction'>
-                <Link to='/'>Home</Link>    
                 <h3>Conduct a Transaction</h3>
                 <br/>
                 <h4>Known Addresses</h4>

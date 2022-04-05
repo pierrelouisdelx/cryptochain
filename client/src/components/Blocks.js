@@ -22,8 +22,7 @@ class Blocks extends Component {
 
     render() {
         return (
-            <div> 
-                <div><Link to='/'>Home</Link></div>
+            <div className='divBlocks'> 
                 <h3>Blocks</h3>
                 <div>
                     {

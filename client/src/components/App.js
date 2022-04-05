@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.jpg';
 import { Button } from 'react-bootstrap';
+import Blocks from './Blocks';
+import ConductTransaction from './ConductTransaction';
+import TransactionPool from './TransactionPool';
 
 class App extends Component {
     state = { walletInfo: {}, displayWallet: false};
@@ -35,10 +38,16 @@ class App extends Component {
     render() {
         return (
             <div className='App'>
-                {this.displayWalletInfo}
-                <div><Link to='/blocks'>Blocks</Link></div>
-                <div><Link to='/send'>Send</Link></div>
-                <div><Link to='/pool'>Transaction Pool</Link></div>
+                <div className='navBar'>
+                    {this.displayWalletInfo}
+                </div>
+                <div className='main'>    
+                    <div className='top'>
+                        <Blocks/>
+                        <ConductTransaction/>
+                    </div>
+                    <TransactionPool/>
+                </div>
             </div>
         );
     }

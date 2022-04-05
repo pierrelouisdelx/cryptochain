@@ -20,7 +20,7 @@ class TransactionPool extends Component {
             .then(response => {
                 if (response.status === 200) {
                     alert('Success');
-                    history.push('blocks');
+                    //history.push('blocks');
                 } else {
                     alert('The mine-transactions block request did not complete');
                 }
@@ -43,7 +43,6 @@ class TransactionPool extends Component {
     render() {
         return (
             <div className='TransactionPool'>
-                <div><Link to='/'>Home</Link></div>
                 <h3>Transaction Pool</h3>
                 {
                     Object.values(this.state.transactionPoolMap).map(transaction => {
