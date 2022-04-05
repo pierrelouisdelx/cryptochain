@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from './components/App';
 import history from './history';
+import './index.css';
 
 render(
     <BrowserRouter history={history}>
