@@ -42,11 +42,11 @@ class App extends Component {
                     {this.displayWalletInfo}
                 </div>
                 <div className='main'>    
-                    <div className='top'>
-                        <Blocks/>
+                    <Blocks/>
+                    <div className='right'>
                         <ConductTransaction/>
+                        <TransactionPool/>
                     </div>
-                    <TransactionPool/>
                 </div>
             </div>
         );

@@ -31,8 +31,15 @@ hr {
 .divBlocks, .conductTransaction, .TransactionPool {
     border-radius: 25px;
     border: 1px solid #0395de;
-    margin: 25px;
     padding: 10px;
+}
+
+.divBlocks {
+    margin-bottom: 25px;
+}
+
+.Blocks, .Block {
+    margin-top: 10px;
 }
 
 .Blocks {
@@ -46,17 +53,12 @@ hr {
 .Block {
     border: 3px solid #0395de;
     border-radius: 25px;
-    margin: 10px;
     padding: 10px;
 }
 
 .Block:hover {
     cursor: pointer;
     box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4;
-}
-
-.Transaction {
-    padding: 5%;
 }
 
 button, a {
@@ -77,21 +79,30 @@ input {
     margin: 5px;
 }
 
-.conductTransaction {
-    max-width: 100%;
+.conductTransaction, .TransactionPool {
+    max-width: 90%;
+    width: 100%;
 }
 
-.TransactionPool {
-    width: 100%;
+.conductTransaction {
+    margin-bottom: 25px;
 }
 
 .main {
     display: flex;
     flex-wrap: wrap;
-    overflow: hidden;
+    justify-content: center;
 }
 
-.top {
+.right {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 75%;
+    align-items: center;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
